@@ -1,0 +1,135 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f4f7f6;
+    color: #444;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #d81818;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#noteInputArea {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+#noteInputArea textarea {
+    width: calc(100% - 20px);
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    height: 100px;
+    margin-bottom: 10px;
+    resize: vertical;
+}
+
+#notesList {
+    margin: 0;
+    padding: 0;
+}
+
+#notesList .note-item {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 4px;
+    margin-bottom: 10px;
+    padding: 15px;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    min-height: 50px; /* Set a minimum height */
+    transition: height 0.3s ease;
+    cursor: pointer;
+    word-break: break-word;
+}
+
+.note-content {
+    flex: 1 0 auto;
+    margin-right: 10px;
+}
+
+.note-buttons {
+    flex: 0 1 auto; /* Allow shrink but do not grow */
+    display: flex;
+    flex-wrap: nowrap;
+    margin-top: 10px; /* Add margin-top */
+}
+
+.suggestion-button, .ok-button, .edit-button, .delete-button, .organize-button {
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+}
+
+.suggestion-button:hover, .ok-button:hover, .edit-button:hover, .delete-button:hover {
+    background-color: #a75d5d;
+}
+
+.suggestion-button:disabled {
+    background-color: #a8dadc;
+    cursor: default;
+}
+
+.ai-suggestion-container {
+    width: 100%; /* Full width */
+    padding: 10px 0; /* Padding top and bottom */
+    box-sizing: border-box; /* Include padding in width */
+    display: none; /* Hide by default */
+}
+
+.note-item.show-suggestion .ai-suggestion-container {
+    display: block; /* Show the suggestion container */
+}
+
+.ai-suggestion {
+    color: #555;
+    padding: 10px;
+    background-color: #eef9f8;
+    border-left: 3px solid #66bfbf;
+    margin: 10px 0;
+    position: relative;
+}
+
+.ok-button {
+    background-color: #bbb;
+    margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+    #noteInputArea textarea {
+        width: calc(100% - 40px);
+    }
+
+    .note-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .note-content, 
+    .note-buttons {
+        width: 100%;
+    }
+
+    .suggestion-button, .ok-button, .edit-button, .delete-button {
+        width: 100%; /* Full width buttons */
+        margin-top: 10px;
+    }
+
+    .ai-suggestion-container {
+        padding: 10px; /* Adjust padding as needed for smaller screens */
+    }
+
+}
